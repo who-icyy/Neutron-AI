@@ -5,7 +5,9 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.filled.Send
 import androidx.compose.material3.*
+import androidx.compose.material3.ButtonDefaults.elevatedButtonColors
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -78,9 +80,15 @@ fun ChatGPTScreen() {
                         singleLine = true
                     )
 
-                    Spacer(modifier = Modifier.width(8.dp))
+                    Spacer(modifier = Modifier.width(10.dp))
 
-                    Button(
+                    ElevatedButton(
+
+                        elevation = ButtonDefaults.elevatedButtonElevation(
+                            defaultElevation = 60.dp,
+                        ),
+                        shape = RoundedCornerShape(100.dp),
+
                         onClick = {
                             if (messageText.text.isNotBlank()) {
                                 messages.add(messageText.text to true)  // Add user message
@@ -89,7 +97,7 @@ fun ChatGPTScreen() {
                             }
                         }
                     ) {
-                        Text("Send")
+                        Icon(Icons.Default.Send, contentDescription = null, modifier = Modifier.height(40.dp).width(20.dp));
                     }
                 }
             }
@@ -109,10 +117,10 @@ fun ChatBubble(message: String, isUser: Boolean) {
             color = if (isUser) Color.White else MaterialTheme.colorScheme.onSecondaryContainer,
             modifier = Modifier
                 .background(
-                    color = if (isUser) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.secondaryContainer,
+                    color = if (isUser) MaterialTheme.colorScheme.primaryContainer else MaterialTheme.colorScheme.secondaryContainer,
                     shape = RoundedCornerShape(12.dp)
                 )
-                .padding(12.dp)
+                .padding(15.dp)
         )
     }
 }
