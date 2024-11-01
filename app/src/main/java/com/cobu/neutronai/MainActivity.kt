@@ -1,5 +1,6 @@
 package com.cobu.neutronai
 
+import ChatGPTScreen
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -19,7 +20,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background,
                 ) {
-                    BakingScreen()
+//                    BakingScreen()
+                    ChatGPTScreen()
                 }
             }
         }
