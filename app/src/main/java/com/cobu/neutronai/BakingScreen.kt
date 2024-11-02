@@ -3,11 +3,19 @@ package com.cobu.neutronai
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.PlayArrow
+import androidx.compose.material.icons.outlined.Send
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ElevatedButton
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
@@ -40,7 +48,7 @@ fun BakingScreen(
         Text(
             text = stringResource(R.string.baking_title),
             style = MaterialTheme.typography.titleLarge,
-            modifier = Modifier.padding(16.dp)
+            modifier = Modifier.padding(16.dp).align(Alignment.CenterHorizontally)
         )
 
 
@@ -57,15 +65,19 @@ fun BakingScreen(
                     .align(Alignment.CenterVertically)
             )
 
-            Button(
+            ElevatedButton(
                 onClick = {
                     bakingViewModel.sendPrompt(prompt)
                 },
+                elevation = ButtonDefaults.elevatedButtonElevation(200.dp),
                 enabled = prompt.isNotEmpty(),
                 modifier = Modifier
                     .align(Alignment.CenterVertically)
+                    .width(70.dp)
+                    .height(60.dp)
             ) {
-                Text(text = stringResource(R.string.action_go))
+//                Text(text = stringResource(R.string.action_go))
+                Icon(Icons.Outlined.Send, contentDescription = null)
             }
         }
 
