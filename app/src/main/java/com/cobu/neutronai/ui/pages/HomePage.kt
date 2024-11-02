@@ -111,6 +111,7 @@ fun ChatGPTScreen() {
                         shape = RoundedCornerShape(100.dp),
 
                         onClick = {
+
                             if (messageText.text.isNotBlank()) {
                                 messages.add(messageText.text to true)  // Add user message
                                 messages.add("Reply to: ${messageText.text}" to false)  // Add assistant message

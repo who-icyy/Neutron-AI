@@ -20,8 +20,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background,
                 ) {
-//                    BakingScreen()
-                    ChatGPTScreen()
+                    BakingScreen()
+//                    ChatGPTScreen()
                 }
             }
         }
