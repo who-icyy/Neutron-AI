@@ -109,11 +109,11 @@ fun BakingScreen(
 
             Button(
                 onClick = {
-                    val bitmap = BitmapFactory.decodeResource(
-                        context.resources,
-                        images[selectedImage.intValue]
-                    )
-                    bakingViewModel.sendPrompt(bitmap, prompt)
+//                    val bitmap = BitmapFactory.decodeResource(
+//                        context.resources,
+//                        images[selectedImage.intValue]
+//                    )
+                    bakingViewModel.sendPrompt(prompt)
                 },
                 enabled = prompt.isNotEmpty(),
                 modifier = Modifier

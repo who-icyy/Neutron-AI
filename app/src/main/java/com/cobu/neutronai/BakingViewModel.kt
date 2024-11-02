@@ -23,7 +23,7 @@ class BakingViewModel : ViewModel() {
     )
 
     fun sendPrompt(
-        bitmap: Bitmap,
+//        bitmap: Bitmap,
         prompt: String
     ) {
         _uiState.value = UiState.Loading
@@ -32,13 +32,14 @@ class BakingViewModel : ViewModel() {
             try {
                 val response = generativeModel.generateContent(
                     content {
-                        image(bitmap)
+//                        image(bitmap)
                         text(prompt)
                     }
                 )
                 response.text?.let { outputContent ->
                     _uiState.value = UiState.Success(outputContent)
                 }
+
             } catch (e: Exception) {
                 _uiState.value = UiState.Error(e.localizedMessage ?: "")
             }
