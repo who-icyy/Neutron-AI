@@ -9,9 +9,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.PlayArrow
-import androidx.compose.material.icons.outlined.Send
-import androidx.compose.material3.Button
+import androidx.compose.material.icons.automirrored.outlined.Send
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ElevatedButton
@@ -27,7 +25,6 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -40,7 +37,7 @@ fun BakingScreen(
     var prompt by rememberSaveable { mutableStateOf("") }
     var result by rememberSaveable { mutableStateOf("Results Will Appear Here") }
     val uiState by bakingViewModel.uiState.collectAsState()
-    val context = LocalContext.current
+//    val context = LocalContext.current
 
     Column(
         modifier = Modifier.fillMaxSize()
@@ -77,7 +74,7 @@ fun BakingScreen(
                     .height(60.dp)
             ) {
 //                Text(text = stringResource(R.string.action_go))
-                Icon(Icons.Outlined.Send, contentDescription = null)
+                Icon(Icons.AutoMirrored.Outlined.Send, contentDescription = null)
             }
         }
 
