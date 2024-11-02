@@ -41,9 +41,6 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 fun BakingScreen(
     bakingViewModel: BakingViewModel = viewModel()
 ) {
-    val selectedImage = remember { mutableIntStateOf(0) }
-    val placeholderPrompt = stringResource(R.string.prompt_placeholder)
-    val placeholderResult = stringResource(R.string.results_placeholder)
     var prompt by rememberSaveable { mutableStateOf("") }
     var result by rememberSaveable { mutableStateOf("") }
     val uiState by bakingViewModel.uiState.collectAsState()
@@ -74,10 +71,6 @@ fun BakingScreen(
 
             Button(
                 onClick = {
-//                    val bitmap = BitmapFactory.decodeResource(
-//                        context.resources,
-//                        images[selectedImage.intValue]
-//                    )
                     bakingViewModel.sendPrompt(prompt)
                 },
                 enabled = prompt.isNotEmpty(),
@@ -101,7 +94,7 @@ fun BakingScreen(
             }
             val scrollState = rememberScrollState()
             Text(
-                text = result,
+                text = result.replace( "*", ""),
                 textAlign = TextAlign.Start,
                 color = textColor,
                 modifier = Modifier
