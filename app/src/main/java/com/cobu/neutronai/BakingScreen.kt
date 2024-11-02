@@ -94,7 +94,7 @@ fun BakingScreen(
             }
             val scrollState = rememberScrollState()
             Text(
-                text = result.replace( "*", ""),
+                text = result.replace( "*", "").replace("[", "").replace("]", ""),
                 textAlign = TextAlign.Start,
                 color = textColor,
                 modifier = Modifier
